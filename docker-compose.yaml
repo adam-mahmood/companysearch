@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  postgres_db:
+    image: postgres:latest
+    ports:
+      - '5432:5432'
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=S3cret
+      - POSTGRES_USER=company_search
+      - POSTGRES_DB=company_search_db
+
+networks:
+  jenkins_dind:
+    driver: bridge

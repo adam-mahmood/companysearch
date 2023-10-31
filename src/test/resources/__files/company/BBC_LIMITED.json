@@ -1,0 +1,96 @@
+{
+  "page_number": 1,
+  "kind": "search#companies",
+  "total_results": 20,
+  "items": [
+    {
+      "company_status": "active",
+      "address_snippet": "Boswell Cottage Main Street, North Leverton, Retford, England, DN22 0AD",
+      "date_of_creation": "2008-02-11",
+      "matches": {
+        "title": [
+          1,
+          3
+        ]
+      },
+      "description": "06500244 - Incorporated on 11 February 2008",
+      "links": {
+        "self": "/company/06500244"
+      },
+      "company_number": "06500244",
+      "title": "BBC LIMITED",
+      "company_type": "ltd",
+      "address": {
+        "premises": "Boswell Cottage Main Street",
+        "postal_code": "DN22 0AD",
+        "country": "England",
+        "locality": "Retford",
+        "address_line_1": "North Leverton"
+      },
+      "kind": "searchresults#company",
+      "description_identifier": [
+        "incorporated-on"
+      ]
+    },
+    {
+      "company_status": "active",
+      "address_snippet": "Unit 2 Restormel Estate, Liddicoat Road, Lostwithiel, Cornwall, PL22 0HG",
+      "date_of_creation": "2011-02-07",
+      "matches": {
+        "title": [
+          1,
+          3
+        ]
+      },
+      "description": "07520089 - Incorporated on  7 February 2011",
+      "links": {
+        "self": "/company/07520089"
+      },
+      "company_number": "07520089",
+      "title": "BBC AND CO LIMITED",
+      "company_type": "ltd",
+      "address": {
+        "premises": "Unit 2",
+        "postal_code": "PL22 0HG",
+        "locality": "Lostwithiel",
+        "region": "Cornwall",
+        "address_line_1": "Restormel Estate",
+        "address_line_2": "Liddicoat Road"
+      },
+      "kind": "searchresults#company",
+      "description_identifier": [
+        "incorporated-on"
+      ]
+    },
+    {
+      "company_status": "dissolved",
+      "address_snippet": "30 Chalcot Grove, Birmingham, England, B20 1HJ",
+      "date_of_creation": "2020-07-23",
+      "matches": {
+        "title": [
+          1,
+          3
+        ]
+      },
+      "description": "12763638 - Dissolved on 12 September 2023",
+      "links": {
+        "self": "/company/12763638"
+      },
+      "company_number": "12763638",
+      "title": "BBC & GLAZING LTD",
+      "company_type": "ltd",
+      "address": {
+        "premises": "30",
+        "postal_code": "B20 1HJ",
+        "country": "England",
+        "locality": "Birmingham",
+        "address_line_1": "Chalcot Grove"
+      },
+      "kind": "searchresults#company",
+      "description_identifier": [
+        "dissolved-on"
+      ],
+      "date_of_cessation": "2023-09-12"
+    }
+  ]
+}

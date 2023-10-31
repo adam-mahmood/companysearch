@@ -1,0 +1,144 @@
+openapi: 3.0.0
+servers:
+
+  -  url: http://localhost/cake/1.0.0
+  -  url: https://localhost/cake/1.0.0
+
+info:
+  description: This is a API for Company Search.
+  version: "1.0.0"
+  title: Simple Company Search API
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: admins
+    description: Secured Admin-only calls
+  - name: developers
+    description: Operations available to regular developers
+paths:
+  /search:
+    post:
+      summary: Search for a company
+      tags:
+        - companySearch
+      operationId: companySearch
+      description: Retrieves Acive Officers within a Company
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanySearchRequest'
+      parameters:
+        - name: x-api-key
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: activeOnly
+          in: query
+          required: false
+          description: Decide whether only active companies should be returned
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Successful search result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanySearchResponse'
+        '400':
+          description: bad input parameter
+components:
+  schemas:
+    CompanySearchRequest:
+      type: object
+      required:
+        - companyNumber
+      properties:
+        companyName:
+          type: string
+          example: "BBC LIMITED"
+        companyNumber:
+          type: string
+          example: "06500244"
+    CompanySearchResponse:
+      type: object
+      properties:
+        total_results:
+          type: integer
+          example: 1
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+    Company:
+      type: object
+      properties:
+        company_number:
+          type: string
+        company_type:
+          type: string
+        title:
+          type: string
+        company_status:
+          type: string
+        date_of_creation:
+          type: string
+          format: date
+        address:
+          $ref: '#/components/schemas/Address'
+        officers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Officer'
+    Address:
+      type: object
+      properties:
+        locality:
+          type: string
+        postal_code:
+          type: string
+        premises:
+          type: string
+        address_line_1:
+          type: string
+        country:
+          type: string
+    Officer:
+      type: object
+      properties:
+        name:
+          type: string
+        officer_role:
+          type: string
+        appointed_on:
+          type: string
+          format: date
+        address:
+          $ref: '#/components/schemas/Address'
+    ErrorDetails:
+      description: a set of error codes and detatails recieved when trying to to complete the request
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/JSONAPIErrorDetails'
+
+    JSONAPIErrorDetails:
+      description: Error detals object
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          type: string
+        message:
+          type: string
+        reference:
+          type: string
+
